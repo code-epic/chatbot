@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../go/src/github.com/code-epic/middleware"
+		},
+		{
+			"path": "../../../../go/src/github.com/informaticaipsfa/tunel"
+		}
+	]
+}

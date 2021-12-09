@@ -1,0 +1,75 @@
+<div class="header bg-gradient-success py-7 py-lg-8">
+   
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container mt--9 pb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-12">
+    
+
+
+
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card card-bordered">
+                            <div class="card-header">
+                                <h4 class="card-title"><strong>ChatBot - Ipostelito</strong></h4> 
+                                
+                            </div>
+                            <div #panel class="ps-container ps-theme-default ps-active-y" 
+                                id="chat-content" 
+                                style="overflow-y: scroll !important; height:400px !important;">
+
+                                <div class="media media-chat"> <img class="avatar" src="./assets/img/icons/ipostelito.png" alt="...">
+                                    <div class="media-body">
+                                        <p>¡Bienvenido al ChatBot! Soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
+                                            para hacerte más fácil el día.
+                                        </p>
+                                        <p class="meta"><time datetime="2018">08:06</time></p>
+                                    </div>
+                                </div>
+                               
+                                <div class="media media-chat media-chat-reverse">
+                                    <div class="media-body">
+                                        <p>Cadena</p>
+                                        <p class="meta"><time datetime="2018">00:09</time></p>
+                                      </div>
+                                    </div>
+                               
+                              
+                               
+                               
+                                
+                                
+                            </div>
+                            <div class="publisher bt-1 border-light"> 
+                                <img class="avatar avatar-xs" src="./assets/img/icons/ipostelito.png" alt="...">
+                                <input class="publisher-input" type="text" placeholder="Escribir..." (keyup)="Enter($event)"
+                                [ngModelOptions]="{standalone: true}" [(ngModel)]="mensaje"  value ="{{mensaje}}">
+                                    <a class="publisher-btn text-info" href="#" data-abc="true">
+                                        <i class="fa fa-paper-plane" (click)="Enviar()"></i>
+                                    </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  
+  
+
+  
