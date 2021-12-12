@@ -156,11 +156,8 @@ export class ChatbotService {
 
   //EnviarMensaje Api generales
   EnviarMensaje( xAPI : IAPICore ) : Observable<any>{
-    var url = this.URL + "crud";
- 
-    console.info("Ejecucion ", xAPI);
+    var url = this.URL + "crud"; 
     return this.http.post<any>(url, xAPI, this.httpOptions);
-    
   }
 
   //Analizar mensajes 
