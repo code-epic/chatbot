@@ -66,6 +66,7 @@ export class ChatbotComponent implements OnInit {
         this.itk = data
         sessionStorage.setItem("token-chb", this.itk.token );
         document.getElementById("chat-content").innerHTML = `<style>${this.cbS.style}</style>` + this.Bienvenida()
+        console.info("Iniciando Session")
       },
       (error) => { console.log(error) }
     )  
@@ -134,6 +135,7 @@ export class ChatbotComponent implements OnInit {
     this.mensaje = ''
     this.cbS.EnviarMensaje(this.xAPI, this.itk.token).subscribe(
       (data) => {
+
         this.intentos = 0
         var Chat = data[0]
         document.getElementById("chat-content").innerHTML += this.recibirMensaje( Chat.resp )   
@@ -141,7 +143,14 @@ export class ChatbotComponent implements OnInit {
       },
       (error) => { 
         if (this.intentos > 0) {
-          console.info ("Fallo el acceso ", error.error)
+          var err = error.error;
+          if(err.tipo == 2) {
+            this.iniciarSesion()
+           
+            this.intentos++
+          }else{
+            console.info ("Fallo el acceso ", err)
+          }
           return false
         }
         this.iniciarSesion()
