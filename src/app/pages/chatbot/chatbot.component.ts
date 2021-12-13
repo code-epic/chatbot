@@ -44,29 +44,37 @@ export class ChatbotComponent implements OnInit {
     logs : false,
     cache: 0,
     estatus: false
-  };
+  }
 
 
-  public itk: IToken;
+  public itk: IToken
 
+  public intentos = 0
 
   constructor(private cbS : ChatbotService) { 
     this.ancho = 300
-    this.cbS.getLogin("CH001", "za7896321").subscribe(
+    
+   
+
+  }
+
+
+   async iniciarSesion(){
+    sessionStorage.removeItem("token-chb")
+    await this.cbS.getLogin("CH001", "za7896321").subscribe(
       (data) => {            
         this.itk = data
-        sessionStorage.removeItem("token-chb")
         sessionStorage.setItem("token-chb", this.itk.token );
+        document.getElementById("chat-content").innerHTML = `<style>${this.cbS.style}</style>` + this.Bienvenida()
       },
       (error) => { console.log(error) }
     )  
    }
 
-
-
   
   ngOnInit(): void {
-    document.getElementById("chat-content").innerHTML = `<style>${this.cbS.style}</style>` + this.Bienvenida()
+    this.iniciarSesion()
+    
   }
 
   enviarMensaje(cadena : string) : string {
@@ -116,18 +124,30 @@ export class ChatbotComponent implements OnInit {
     document.getElementById("chat-content").innerHTML +=  this.enviarMensaje(this.mensaje)    
     this.IrAlFinal()
     
+    this.Preguntar()
+  }
+
+  Preguntar(){
     this.xAPI.funcion = "ChatBot";
     this.xAPI.parametros = this.mensaje;
 
     this.mensaje = ''
-    this.cbS.EnviarMensaje(this.xAPI).subscribe(
+    this.cbS.EnviarMensaje(this.xAPI, this.itk.token).subscribe(
       (data) => {
-        
+        this.intentos = 0
         var Chat = data[0]
         document.getElementById("chat-content").innerHTML += this.recibirMensaje( Chat.resp )   
         this.IrAlFinal()
       },
-      (error) => { console.log(error) }
+      (error) => { 
+        if (this.intentos > 0) {
+          console.info ("Fallo el acceso ", error.error)
+          return false
+        }
+        this.iniciarSesion()
+        this.Preguntar()
+        this.intentos++
+      }
     )  
   }
 

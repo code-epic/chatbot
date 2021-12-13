@@ -136,10 +136,7 @@ export class ChatbotService {
   urlGet : string
    
   // 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + sessionStorage.getItem('token-chb')  })
-  };          
+  
   constructor(private router: Router, private http : HttpClient) { 
     this.urlGet = environment.Url;
   }
@@ -155,9 +152,13 @@ export class ChatbotService {
   
 
   //EnviarMensaje Api generales
-  EnviarMensaje( xAPI : IAPICore ) : Observable<any>{
+  EnviarMensaje( xAPI : IAPICore, token : string ) : Observable<any>{
+    var httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token  })
+    };          
     var url = this.URL + "crud"; 
-    return this.http.post<any>(url, xAPI, this.httpOptions);
+    return this.http.post<any>(url, xAPI, httpOptions);
   }
 
   //Analizar mensajes 
