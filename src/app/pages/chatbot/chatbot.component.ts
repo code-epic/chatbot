@@ -78,6 +78,7 @@ export class ChatbotComponent implements OnInit {
     
   }
 
+  //enviarMensaje Es el mensaje que se envia al servidor del chatbot
   enviarMensaje(cadena : string) : string {
     const hoy = new Date()
     var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds()
@@ -89,6 +90,7 @@ export class ChatbotComponent implements OnInit {
     </div>`
   }
 
+  //recibirMensaje Mensaje que se envia al usuario en forma de constestacion
   recibirMensaje(cadena : string) : string {
     const hoy = new Date()
     var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds()
@@ -101,6 +103,7 @@ export class ChatbotComponent implements OnInit {
     </div>`
   }
 
+  //Bienvenida establece el pimer mensaje para saludar a los clientes
   Bienvenida(): string{
     const hoy = new Date()
     var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds()
@@ -128,6 +131,7 @@ export class ChatbotComponent implements OnInit {
     this.Preguntar()
   }
 
+  //Preguntar realiza el envio de mensajes y pregunta si falla la conexion
   Preguntar(){
     this.xAPI.funcion = "ChatBot";
     this.xAPI.parametros = this.mensaje;
@@ -145,8 +149,7 @@ export class ChatbotComponent implements OnInit {
         if (this.intentos > 0) {
           var err = error.error;
           if(err.tipo == 2) {
-            this.iniciarSesion()
-           
+            this.iniciarSesion()           
             this.intentos++
           }else{
             console.info ("Fallo el acceso ", err)
@@ -160,10 +163,12 @@ export class ChatbotComponent implements OnInit {
     )  
   }
 
+  //Enter permite evaluar la tecla en la caja de envio del mensaje
   Enter(e : any) {
     if ( e.keyCode == 13 ) this.Enviar()
   }
 
+  //IrAlFinal mueve el cursor de la caja de mensaje hacia el final de los mensajes
   IrAlFinal(){
     this.ancho += 100
     this.panel.nativeElement.scrollTop = this.ancho
