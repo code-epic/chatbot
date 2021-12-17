@@ -1,4 +1,4 @@
-<div class="header bg-gradient-primary py-7 py-lg-8">
+<div class="header bg-red py-7 py-lg-8">
   <div class="separator separator-bottom separator-skew zindex-100">
     <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
@@ -10,17 +10,17 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card" style="border-radius: 10px;margin: 0 0 2rem 0;overflow: hidden;">
-          <div class="card-header bg-gradient-success">
+          <div class="card-header bg-gradient-info">
               <img class="logo" src="./assets/img/icons/logo.png">
               <!-- <h4 class="card-title text-white"><strong>ChatBot - Ipostelin</strong></h4> --> 
           </div>
-          <div #panel class="ps-container ps-theme-default ps-active-y bg-gradient-success" 
+          <div #panel class="ps-container ps-theme-default ps-active-y bg-white" 
             id="chat-content" 
             style="overflow-y: scroll !important; height:400px !important;">
 
             <div class="media media-chat"> <img class="avatar" src="./assets/img/icons/ipostelito.png" alt="...">
               <div class="media-body">
-                  <p>¡Bienvenido al ChatBot! Soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
+                  <p>Hola soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
                       para hacerte más fácil el día.
                   </p>
                   <p class="meta"><time datetime="2018">08:06</time></p>
@@ -33,7 +33,7 @@
               </div>
             </div>
           </div>
-          <div class="card-footer bg-gradient-success">
+          <div class="card-footer bg-gradient-info">
             <div class="input-group">
               <textarea class="form-control" type="text" placeholder="Escribe tu mensaje..." (keyup)="Enter($event)"
               [ngModelOptions]="{standalone: true}" [(ngModel)]="mensaje"  value ="{{mensaje}}"></textarea>

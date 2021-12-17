@@ -111,7 +111,7 @@ export class ChatbotComponent implements OnInit {
     return `
       <div class="media media-chat"> <img class="avatar" src="./assets/img/icons/ipostelito.png" alt="...">
           <div class="media-body">
-              <p>¡Bienvenido al ChatBot! Soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
+              <p>Hola soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
                   para hacerte más fácil el día.
               </p>
               <p class="meta"><time datetime="2018">${hora}</time></p>
@@ -124,11 +124,11 @@ export class ChatbotComponent implements OnInit {
   //Enviar un mensaje de texto
   Enviar(){
     
-
-    document.getElementById("chat-content").innerHTML +=  this.enviarMensaje(this.mensaje)    
-    this.IrAlFinal()
-    
-    this.Preguntar()
+    if (this.mensaje != "" ) {
+      document.getElementById("chat-content").innerHTML +=  this.enviarMensaje(this.mensaje)    
+      this.IrAlFinal()
+      this.Preguntar()
+    }
   }
 
   //Preguntar realiza el envio de mensajes y pregunta si falla la conexion

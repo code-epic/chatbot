@@ -91,8 +91,8 @@ export class ChatbotService {
     position: relative;
     padding: 6px 8px;
     margin: 4px 0;
-    background-color: #C3E7E7;
-    border-radius: 25px;
+    background-color: #f5f6f7;
+    border-radius: 20px;
     font-weight: 100;
     color: #000000;
   }
@@ -124,7 +124,7 @@ export class ChatbotService {
 .media-chat.media-chat-reverse .media-body p {
     float: right;
     clear: right;
-    background-color: #48b0f7;
+    background-color: #909694;
     color: #fff;
 }
 
