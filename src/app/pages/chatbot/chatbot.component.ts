@@ -111,8 +111,7 @@ export class ChatbotComponent implements OnInit {
     return `
       <div class="media media-chat"> <img class="avatar" src="./assets/img/icons/ipostelito.png" alt="...">
           <div class="media-body">
-              <p>Hola soy Ipostelin, tu asistente virtual dispuesto a ayudarte 
-                  para hacerte más fácil el día.
+              <p>Bienvenido a tu asistente virtual
               </p>
               <p class="meta"><time datetime="2018">${hora}</time></p>
           </div>
