@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  Url: 'http://localhost:8012/v1/api/'
+  Url: 'http://app.ipostel.gob.ve:8012/v1/api/'
 };
 
 /*
